@@ -86,7 +86,7 @@ Git | GitHub | Terraform | Docker | Kubernetes | CircleCI | Data Studio | Fireba
 
 #### 習得スキル
 
-- 大規模人数での Git/Github 開発フロー
+- 大規模人数での Git/GitHub 開発フロー
 - GAE、Datastore、Circle CI
 - Golangでのプログラミング、テスト実装
 
