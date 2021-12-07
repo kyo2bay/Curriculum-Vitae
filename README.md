@@ -48,6 +48,7 @@ Git | GitHub | Terraform | Docker | Kubernetes | CircleCI | Data Studio | Fireba
 - Google Cloud - Professional Cloud Security Engineer
 - Google Cloud - Professional Cloud Developer
 - Google Cloud - Professional Cloud DevOps Engineer
+- Google Cloud - Professional Cloud Network Engineer
 - Java SE 8 Silver
 - OSS-DB Silver
 - 応用情報技術者
