@@ -5,7 +5,7 @@
 |key|value|
 |---|-----|
 |Name|小崎 勇周 (Kozaki Yushu)|
-|Address|東京都 新宿区|
+|Address|東京都|
 |Education|京都大学 総合人間学部 卒業 <br> Foothill College Computer Science 中退|
 |Qiita|https://qiita.com/kyo2bay
 |LinkedIn|https://www.linkedin.com/in/kyo2bay
