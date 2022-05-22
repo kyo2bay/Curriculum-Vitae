@@ -29,7 +29,7 @@ Gin | Django | Ruby on Rails
 
 ### AWS（順不同）
 
-VPC | S3 | Lambda | EC2 | IAM | SNS | SES | Redshift | Cloud Watch | CloudTrail | Cloud9
+VPC, S3, Lambda, EC2, IAM, SNS, SES, Redshift, Cloud Watch, CloudTrail, Cloud9
 
 ### GCP（順不同）
 
@@ -38,7 +38,7 @@ VPC | GCS | Cloud Functions | GCE | GKE(Kubernetes) | GAE/SE(Standard Environmen
 
 ### その他
 
-Git | GitHub | Terraform | Docker | Kubernetes | CircleCI | Data Studio | Firebase | Flutter
+Git / GitHub / Terraform / Docker / Kubernetes / CircleCI / Data Studio / Firebase / Flutter
 
 ## 資格
 
