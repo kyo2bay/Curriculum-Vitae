@@ -21,24 +21,41 @@
 ## スキル
 ### 言語（得意順）
 
-Golang | Python | Java | Ruby | Bash Script | JavaScript
+Golang / TypeScript / Python / Java / Ruby
 
 ### フレームワーク（得意順）
 
-Gin | Django | Ruby on Rails
+Gin / Vue / Django / Ruby on Rails
 
-### AWS（順不同）
+### AWS
 
-VPC, S3, Lambda, EC2, IAM, SNS, SES, Redshift, Cloud Watch, CloudTrail, Cloud9
+Lambda / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
 
-### GCP（順不同）
+### GCP
 
-VPC | GCS | Cloud Functions | GCE | GKE(Kubernetes) | GAE/SE(Standard Environment) | IAM | Cloud SQL | Cloud Pub/Sub | BigQuery | Deployment Manager | Cloud Build | Stackdriver Logging | Stackdriver Monitoring | Cloud Scheduler
+#### Compute
 
+Cloud Run / Cloud Functions / GKE / GAE
+
+#### CI/CD
+
+Cloud Build / Artifact Registry / Container Registry
+
+#### Databases
+
+Cloud SQL / Cloud Spanner
+
+#### Analytics
+
+BigQuery / Cloud Pub/Sub / Data Portal
+
+### Firebase
+
+Authentication / Firestore / Hosting / Remote Config
 
 ### その他
 
-Git / GitHub / Terraform / Docker / Kubernetes / CircleCI / Data Studio / Firebase / Flutter
+GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 ## 資格
 
