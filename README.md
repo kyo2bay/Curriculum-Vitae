@@ -7,16 +7,29 @@
 |Name|小崎 勇周 (Kozaki Yushu)|
 |Address|東京都|
 |Education|京都大学 総合人間学部 卒業 <br> Foothill College Computer Science 中退|
-|Qiita|https://qiita.com/kyo2bay
-|LinkedIn|https://www.linkedin.com/in/kyo2bay
+|Qiita|[@kyo2bay](https://qiita.com/kyo2bay)
+|LinkedIn|[@kyo2bay](https://www.linkedin.com/in/kyo2bay)
 
 ## 概要
 
-- クラウドアーキテクチャ設計、クラウドインフラ構築管理、DWH基盤コード開発の経験が豊富です。
-- 運用保守よりは新規開発の業務の経験の方が多く、上流下流問わずゼロからの設計が可能です。
-- 顧客との仕様調整等の折衝、コミュニケーションも得意です。
-- エンジニアとしての経験はまだ浅いため、案件参画時は技術のキャッチアップに追われることがよくありましたが、Computer Science の基本的な知識、技術への好奇心ですぐに業務できるレベルまで到達してきました。
-- まだまだ様々な技術に興味があり、未経験技術領域であれば何でもチャレンジしてみたいというのが率直な思いです。特にフロントエンド周りの技術が業務では未経験のため、機会があれば積極的に挑んでいきたいです。
+- Google Cloud を基盤としたクラウドアーキテクチャ設計、クラウドインフラ構築管理、基盤コード開発の経験が豊富です。
+- 運用保守よりは新規開発の業務の経験の方が多く、上流下流問わずゼロからの設計／実装が可能です。
+- 顧客との仕様調整等の折衝、またチーム全体を俯瞰したコミュニケーションも得意です。
+- Computer Science の基本的な知識、技術への好奇心で未経験の技術でもすぐにキャッチアップできます。
+- まだまだ様々な技術に興味があり、今後機会があれば機械学習系の領域にチャレンジしてみたいと思っています。
+
+## 得意領域
+
+- クラウドアーキテクチャ設計、クラウドインフラ構築管理／コスト最適化(Google Cloud)
+- インフラのコード化(Terraform)
+- GitOpsの導入
+- CI/CDパイプライン構築、高速化
+- ロードバランサーの導入
+- コンテナ最適化
+- IAM 最小権限設定
+- セキュリティ対策
+- Golang のサーバーサイド開発
+- README/Wiki等ドキュメント作成
 
 ## スキル
 ### 言語（得意順）
@@ -25,7 +38,7 @@ Golang / TypeScript / Python / Java / Ruby
 
 ### フレームワーク（得意順）
 
-Gin / Vue / Django / Ruby on Rails
+Gin / Vue(Nuxt) / Django / Ruby on Rails
 
 ### AWS
 
@@ -35,7 +48,7 @@ Lambda / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
 
 #### Compute
 
-Cloud Run / Cloud Functions / GKE / GAE
+Cloud Run + Eventarc / Cloud Functions / GKE / GAE
 
 #### CI/CD
 
@@ -44,6 +57,10 @@ Cloud Build / Artifact Registry / Container Registry
 #### Databases
 
 Cloud SQL / Cloud Spanner
+
+#### Network
+
+Cloud Load Balancing / Cloud Armor / Cloud DNS / Cloud CDN
 
 #### Analytics
 
@@ -78,7 +95,92 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 ## 職務経歴
 
-### カーシェアリング Web アプリ開発(2021/05 ~ 現在)
+### 専門医による医療健康情報安心化サービス開発(2022/2 ~ 現在)
+
+概要: メディアなどのクライアントが執筆した記事を本サービスに登録した医師が妥当性を担保する Webアプリの新規リプレイス開発
+
+#### 担当業務
+
+1. GCP プロダクト選定およびアーキテクチャ設計
+
+    フロントエンド、バックエンド、データベース等に利用するプロダクト設計
+
+    - フロントエンド: Firebase Hosting、バックエンド: Cloud Run、データベース: Firestore
+    - 非同期処理: Cloud Tasks、イベントトリガー: Eventarc
+
+    【課題】
+    参画当時のメンバーが GCP に疎く、バックエンドにレガシープロダクトの Google App Engine を採用しようしていた。
+
+    【解決策】
+    現在の GCP におけるコンピュートプロダクトのファーストチョイスは Cloud Run であることを、その特徴を示しつつ説明し、GAE から Cloud Run に変更した。
+
+1.  インフラのコード化、および GitOps の実装
+
+    Terraform を利用した GCP プロダクトのコード化、および GitHub Pull Request ベースの 適用戦略の実装
+
+    - dev, stage, prod プロジェクトで生じる差分に対して対応できるようなモジュール／ディレクトリ構成で HCL を記述
+    - ローカルなどで手動実行するのではなく、CI/CD パイプラインを通して実行させる設定をし、GitOps を実現させた
+
+    【課題】
+    社内に Terraform に詳しい人がおらず、また特に GitOps スタイルは完全に前例がないため、独自で実装を進める必要があった。
+
+    【解決策】
+    Terraform および GCP の公式ドキュメントを愚直に読みつつ、サンドボックスの GCP プロジェクトで試行錯誤を繰り返した。
+
+1. CI/CD パイプライン構築
+
+    Cloud Build を利用した Firebase Hosting、Cloud Run(PR プレビュー含む)、Terraform のパイプライン構築
+
+    - 上記各プロダクトに対して Pull Requset 作成、マージ時に実行される config ファイルの記述
+
+    【課題】
+    CI/CD にかかる時間は開発効率に直結するので、1分でも速くしたかった。
+
+    【解決策】
+    下記の手段によって、それぞれの CD が最大でも4分で完了するようにした。
+
+    - step の実行順序最適化
+    - コンテナイメージの最小化
+    - kaniko キャッシュの活用
+    - Cloud Build 実行マシンのアップグレード
+
+1. ネットワーク関連設定実装
+
+    ロードバランサーの設定、DNSのレコード作成等
+
+    - Firebase Hosting と カスタムドメインのマッピング
+    - Cloud Run とカスタムドメインのマッピング
+    - Load Balancing / CDN / Cloud Armor の設定
+
+1. フロントエンドの実装
+
+    Vue、Vuetify、Nuxt、TypeScript でのフロントエンド機能開発
+
+    - Vue テンプレートの記述
+    - Component (Composition API)の実装
+    - 他のメンバーの実装レビュー
+
+    【課題】
+    フロントエンドは全くの未経験領域であった。
+
+    【解決策】
+    基礎をじっくり学習する時間もなかったので、他のフロントエンドエンジニアに相談する、他機能の既存コードをフル活用しながら、応用→基本という流れで知見をつけた。
+
+#### 習得スキル
+
+- Vue, Nuxt, TypeScript
+- Cloud Run、Cloud Build、Eventarc、Cloud Load Balancing、Cloud Armor、Cloud CDN
+- Firebase Authentication、Hosting、Firestore、Remote Config
+
+#### コメント
+
+- 初めての新規Webアプリ開発であったが、技術力の高いメンバーに協力を仰いで、作業を進められた。適切で簡潔な質問で知見のあるメンバーから意見を引き出すというのも大切なスキルだと感じた。
+
+- Terraform が書けるようになったこともあり、プロジェクト中盤以降は インフラ周りを完全に任せてもらえるようになった。そこでこれまで断片的になっていた GCP の知見が実務を通して、体系的に整理されたのは非常によかった。
+
+<br>
+
+### カーシェアリング Web アプリ開発(2021/05 ~ 2021/9)
 
 概要: カーシェアリング Web アプリの機能追加開発
 
@@ -111,8 +213,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     - CircleCIの `config.yml` の可読性向上(`executors`, `commands`, `parameters` の活用)
 
     【課題】
-    Dockerイメージのビルドにかなり時間がかかっていた。特にクライアントサイドは3分近く
-    かかっていた。
+    Dockerイメージのビルドにかなり時間がかかっていた。特にクライアントサイドは3分近くかかっていた。
 
     【解決策】
     `Dockerfile` を確認したところ、Docker Layer Cache を利用しておらず、毎回のビルドでモジュールのインストールを行っていることが分かった。`package.json`、`go.mod` 等のパッケージファイルを先に `COPY` し、パッケージファイルに変更がない場合は、モジュールのインストールが行われないようにした。
