@@ -79,10 +79,11 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 - AWS Certified Solutions Architect – Associate
 - Google Cloud - Associate Cloud Engineer
 - Google Cloud - Professional Cloud Architect
-- Google Cloud - Professional Cloud Security Engineer
+- Google Cloud - Professional Cloud Database Engineer
 - Google Cloud - Professional Cloud Developer
 - Google Cloud - Professional Cloud DevOps Engineer
 - Google Cloud - Professional Cloud Network Engineer
+- Google Cloud - Professional Cloud Security Engineer
 - Java SE 8 Silver
 - OSS-DB Silver
 - 応用情報技術者
