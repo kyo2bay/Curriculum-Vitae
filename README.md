@@ -75,11 +75,16 @@ Authentication / Firestore / Hosting / Remote Config
 
 GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
+## 受賞
+
+[Google Cloud Partner Top Engineer 2023](https://cloud.google.com/blog/ja/topics/partners/partner-top-engineer-2023-award-winners?hl=ja)
+
 ## 資格
 
 - AWS Certified Solutions Architect – Associate
 - Google Cloud - Associate Cloud Engineer
 - Google Cloud - Professional Cloud Architect
+- Google Cloud - Professional Cloud Data Engineer
 - Google Cloud - Professional Cloud Database Engineer
 - Google Cloud - Professional Cloud Developer
 - Google Cloud - Professional Cloud DevOps Engineer
