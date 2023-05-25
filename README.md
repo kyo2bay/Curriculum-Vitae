@@ -431,7 +431,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 <br>
 
-### 携帯キャリア向けデータ移行(2019/09 ~ 2019/12)
+### 携帯キャリア向けデータ移行(2018/09 ~ 2018/12)
 
 概要: SQLServerで稼働している既存のデータベースをOracleに移行。
 
