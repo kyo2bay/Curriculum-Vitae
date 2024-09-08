@@ -114,22 +114,22 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
     GKE Autopilot モードクラスタ構築
 
-    - Release Channel などの各項目の設計
+    - クラスタとの認証認可など各項目の設計
     - Pod, Service 用共有VPCのIPアドレス範囲設計
 
     【課題】
     当プロジェクトの他のシステムでは、GKE バージョンアップデートの検証に毎回時間を要していた。
 
     【解決策】
-    GKE の Release channel を利用し、自動でバージョンアップデートを行うように設定。開発環境は Regular チャンネル、本番環境は Stable チャンネルとすることで、事前に検証したバージョンを適用するスキームとした。
+    GKE の Release channel を利用し、自動でバージョンアップを行う設定を導入。開発環境ではRegularチャンネル、本番環境ではStableチャンネルを採用し、事前に検証済みのバージョンを適用する仕組みを構築した。
 
-1. Kubernetes 上に Web アプリケーションの基盤開発
+1. Kubernetes 上での Web アプリケーションの基盤開発
 
-    SPA(Vue.js)、REST API(Java)構成のWebアプリケーション k8s 基盤構築
+    SPA(Vue.js)、REST API(Java)構成のWebアプリケーション kubernetes 基盤構築
 
     - Kuberenetes の Deployment, Service, Ingress 等のマニフェスト作成およびデプロイ
     - Helm によるパッケージ、テンプレート管理
-    - Nginx によるリバースプロキシ、Basic 認証設定
+    - Nginx によるリバースプロキシ、Basic 認証の設定
 
     【課題】
     当プロジェクトの他のシステムでは、各環境ごとに素の Kubernetesマニフェストファイルを管理していたが、ちょっとしたフィールドの有無など、意図しない環境間差異が発生していた。
@@ -142,11 +142,11 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     Datadog を利用したGKE, Kubernetesメトリクスの監視設定、ログ収集設定
 
     - Datadog Agent インストール、GCP Integration 設定
-    - Dataflow, Pub/Sub を利用した k8s アプリログ収集機構構築
+    - Dataflow, Pub/Sub を利用した kubernetes アプリログ収集機構構築
 
 1. CI/CDパイプライン構築
 
-    k8s および VM 用 CI/CD パイプライン構築
+    kubernetes および VM 用 CI/CD パイプライン構築
 
     - GitHub, GitHub Container Registry, CircleCI を利用した Kubernetes 用 CI/CD パイプラインの構築
     - cron, systemd, Ansible を利用した VM への CD パイプラインの構築
@@ -160,7 +160,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 #### コメント
 
-- 初めての Kubernetes 上での Webアプリケーション構築であったが、公式ドキュメントやLLMを活用して、デファクトスタンダードから逸脱しないアプリケーション基盤を構築できた
+- 初めての Kubernetes 上での Webアプリケーション構築であったが、公式ドキュメントやLLMを活用して、デファクトスタンダードから逸脱しない（作業を引き継いだが苦労しない）アプリケーション基盤を構築できた
 
 <br>
 
