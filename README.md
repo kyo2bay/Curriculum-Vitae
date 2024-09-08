@@ -33,6 +33,7 @@
 - README/Wiki等ドキュメント作成
 
 ## スキル
+
 ### 言語（得意順）
 
 Golang / TypeScript / Python / Java / Ruby
@@ -43,37 +44,25 @@ Gin / Vue(Nuxt) / Django / Ruby on Rails
 
 ### AWS
 
-Lambda / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
+Lambda / ECS / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
 
 ### GCP
 
 #### Compute
 
-Cloud Run + Eventarc / Cloud Functions / GKE / GAE
-
-#### CI/CD
-
-Cloud Build / Artifact Registry / Container Registry
+Cloud Run / Cloud Functions / GKE / GAE / Firebase
 
 #### Databases
 
-Cloud SQL / Cloud Spanner
+Cloud SQL / Cloud Spanner / Firestore / BigQuery
 
-#### Network
+### CI/CD
 
-Cloud Load Balancing / Cloud Armor / Cloud DNS / Cloud CDN
-
-#### Analytics
-
-BigQuery / Cloud Pub/Sub / Data Portal
-
-### Firebase
-
-Authentication / Firestore / Hosting / Remote Config
+GitHub Actions / GitLab CI/CD / CircleCI / Google Cloud Build
 
 ### その他
 
-GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
+Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
 ## 受賞
 
@@ -164,7 +153,6 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 <br>
 
-
 ### 専門医による医療健康情報安心化サービス開発(2022/2 ~ 2023/1)
 
 概要: メディアなどのクライアントが執筆した記事を本サービスに登録した医師が妥当性を担保する Webアプリの新規リプレイス開発
@@ -184,7 +172,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     現在の GCP におけるコンピュートプロダクトのファーストチョイスは Cloud Run であることを、その特徴を示しつつ説明し、GAE から Cloud Run に変更した。
 
-1.  インフラのコード化、および GitOps の実装
+1. インフラのコード化、および GitOps の実装
 
     Terraform を利用した GCP プロダクトのコード化、および GitHub Pull Request ベースの 適用戦略の実装
 
@@ -269,7 +257,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     作業における目標を新卒メンバーのスキル向上にフォーカスし、現在のスキルをヒアリングして正確に把握し、逐一コミュニケーションをとって一番スキル向上に寄与するヘルプ度合いを探りながら進めていった。
 
-1.  クライアントサイドコードレビュー
+1. クライアントサイドコードレビュー
 
     React、Redux で構成されたクライアントサイドのコードレビュー
 
@@ -322,7 +310,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     ゲームを実際にプレーして仕様を把握した。IDEの機能やオリジナルのメモを作成し、ソースコードの全体像理解に努めた。
 
-1.  他メンバーのソースコードレビュー
+1. 他メンバーのソースコードレビュー
 
     - Golang のコードとして問題/改善点はないか
     - ゲーム仕様を満たすコードが実装できているかどうか
@@ -356,7 +344,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     このシステムは別の機能ですでに GKE を利用していたため、ワークロードとしては GKE、なおかつリトライ処理を自前でやってくれる Kubernetes Job を利用することにした。
 
-1.  バッチ処理設計・実装・単体/結合テスト
+1. バッチ処理設計・実装・単体/結合テスト
 
     - Firestore のエンティティ作成/更新処理
     - CSV 変換処理
@@ -479,6 +467,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     IAM、S3への読み込み書き込み権限の整理
 
 #### 習得スキル
+
 - AWSの基本的なサービス(IAM、VPC等)
 - Lambda、S3、CloudWatch、Redshift、EC2
 - Pythonでのプログラミング、テスト実装
@@ -486,6 +475,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 - REST APIの知見
 
 #### コメント
+
 - 仕様ドキュメントが英語のみのWebAPIを理解する必要があった。これは英語力が高い人にしかできない作業で私に割り当てられることになった。結果一機能の設計/実装/テストを全て個人で行うことができたので自信につながった。
 
 - Pythonでのプログラミングは初めてであったが、文法的には以前学習していたRuby等と似ていることもあってあまり苦労しなかった。学習には公式チュートリアルやProgateを利用した。
@@ -505,6 +495,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 1. 新規開発メンバーのサポート
 
 #### 習得スキル
+
 - DBに関する知見（テーブル設計、正規化等）
 - Stored Procedureに関する知見
 - Oracle PL/SQLでのプログラミング
