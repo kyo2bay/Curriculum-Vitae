@@ -33,6 +33,7 @@
 - README/Wiki等ドキュメント作成
 
 ## スキル
+
 ### 言語（得意順）
 
 Golang / TypeScript / Python / Java / Ruby
@@ -43,37 +44,25 @@ Gin / Vue(Nuxt) / Django / Ruby on Rails
 
 ### AWS
 
-Lambda / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
+Lambda / ECS / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
 
 ### GCP
 
 #### Compute
 
-Cloud Run + Eventarc / Cloud Functions / GKE / GAE
-
-#### CI/CD
-
-Cloud Build / Artifact Registry / Container Registry
+Cloud Run / Cloud Functions / GKE / GAE / Firebase
 
 #### Databases
 
-Cloud SQL / Cloud Spanner
+Cloud SQL / Cloud Spanner / Firestore / BigQuery
 
-#### Network
+### CI/CD
 
-Cloud Load Balancing / Cloud Armor / Cloud DNS / Cloud CDN
-
-#### Analytics
-
-BigQuery / Cloud Pub/Sub / Data Portal
-
-### Firebase
-
-Authentication / Firestore / Hosting / Remote Config
+GitHub Actions / GitLab CI/CD / CircleCI / Google Cloud Build
 
 ### その他
 
-GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
+Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
 ## 受賞
 
@@ -102,6 +91,68 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 ## 職務経歴
 
+一定期間以上従事した、もしくは技術的難度の高かったプロジェクトのみ記載しています。
+
+### 製造業向け社内システム刷新(2023/10 ~ 2024/5)
+
+概要: 在庫、生産、受発注、経理などの業務を管理する社内 Web アプリケーションの新規開発
+
+#### 担当業務
+
+1. GKE クラスタ構築
+
+    GKE Autopilot モードクラスタ構築
+
+    - クラスタとの認証認可など各項目の設計
+    - Pod, Service 用共有VPCのIPアドレス範囲設計
+
+    【課題】
+    当プロジェクトの他のシステムでは、GKE バージョンアップデートの検証に毎回時間を要していた。
+
+    【解決策】
+    GKE の Release channel を利用し、自動でバージョンアップを行う設定を導入。開発環境ではRegularチャンネル、本番環境ではStableチャンネルを採用し、事前に検証済みのバージョンを適用する仕組みを構築した。
+
+1. Kubernetes 上での Web アプリケーションの基盤開発
+
+    SPA(Vue.js)、REST API(Java)構成のWebアプリケーション kubernetes 基盤構築
+
+    - Kuberenetes の Deployment, Service, Ingress 等のマニフェスト作成およびデプロイ
+    - Helm によるパッケージ、テンプレート管理
+    - Nginx によるリバースプロキシ、Basic 認証の設定
+
+    【課題】
+    当プロジェクトの他のシステムでは、各環境ごとに素の Kubernetesマニフェストファイルを管理していたが、ちょっとしたフィールドの有無など、意図しない環境間差異が発生していた。
+
+    【解決策】
+    環境間で共通の項目をテンプレート化できるツールを採用した。ここでは、Datadog Agent パッケージなどもインストールしやすい Helm を採用した。
+
+1. Datadog を利用した監視設定
+
+    Datadog を利用したGKE, Kubernetesメトリクスの監視設定、ログ収集設定
+
+    - Datadog Agent インストール、GCP Integration 設定
+    - Dataflow, Pub/Sub を利用した kubernetes アプリログ収集機構構築
+
+1. CI/CDパイプライン構築
+
+    kubernetes および VM 用 CI/CD パイプライン構築
+
+    - GitHub, GitHub Container Registry, CircleCI を利用した Kubernetes 用 CI/CD パイプラインの構築
+    - cron, systemd, Ansible を利用した VM への CD パイプラインの構築
+
+#### 習得スキル
+
+- GKE, Shared VPC
+- Kuberenetes(Deployment, Service, Ingress, ConfigMap, Secret), Helm
+- Nginx, Ansible
+- Datadog
+
+#### コメント
+
+- 初めての Kubernetes 上での Webアプリケーション構築であったが、公式ドキュメントやLLMを活用して、デファクトスタンダードから逸脱しない（作業を引き継いだが苦労しない）アプリケーション基盤を構築できた
+
+<br>
+
 ### 専門医による医療健康情報安心化サービス開発(2022/2 ~ 2023/1)
 
 概要: メディアなどのクライアントが執筆した記事を本サービスに登録した医師が妥当性を担保する Webアプリの新規リプレイス開発
@@ -121,7 +172,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     現在の GCP におけるコンピュートプロダクトのファーストチョイスは Cloud Run であることを、その特徴を示しつつ説明し、GAE から Cloud Run に変更した。
 
-1.  インフラのコード化、および GitOps の実装
+1. インフラのコード化、および GitOps の実装
 
     Terraform を利用した GCP プロダクトのコード化、および GitHub Pull Request ベースの 適用戦略の実装
 
@@ -206,7 +257,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     作業における目標を新卒メンバーのスキル向上にフォーカスし、現在のスキルをヒアリングして正確に把握し、逐一コミュニケーションをとって一番スキル向上に寄与するヘルプ度合いを探りながら進めていった。
 
-1.  クライアントサイドコードレビュー
+1. クライアントサイドコードレビュー
 
     React、Redux で構成されたクライアントサイドのコードレビュー
 
@@ -259,7 +310,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     ゲームを実際にプレーして仕様を把握した。IDEの機能やオリジナルのメモを作成し、ソースコードの全体像理解に努めた。
 
-1.  他メンバーのソースコードレビュー
+1. 他メンバーのソースコードレビュー
 
     - Golang のコードとして問題/改善点はないか
     - ゲーム仕様を満たすコードが実装できているかどうか
@@ -293,7 +344,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     【解決策】
     このシステムは別の機能ですでに GKE を利用していたため、ワークロードとしては GKE、なおかつリトライ処理を自前でやってくれる Kubernetes Job を利用することにした。
 
-1.  バッチ処理設計・実装・単体/結合テスト
+1. バッチ処理設計・実装・単体/結合テスト
 
     - Firestore のエンティティ作成/更新処理
     - CSV 変換処理
@@ -416,6 +467,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
     IAM、S3への読み込み書き込み権限の整理
 
 #### 習得スキル
+
 - AWSの基本的なサービス(IAM、VPC等)
 - Lambda、S3、CloudWatch、Redshift、EC2
 - Pythonでのプログラミング、テスト実装
@@ -423,6 +475,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 - REST APIの知見
 
 #### コメント
+
 - 仕様ドキュメントが英語のみのWebAPIを理解する必要があった。これは英語力が高い人にしかできない作業で私に割り当てられることになった。結果一機能の設計/実装/テストを全て個人で行うことができたので自信につながった。
 
 - Pythonでのプログラミングは初めてであったが、文法的には以前学習していたRuby等と似ていることもあってあまり苦労しなかった。学習には公式チュートリアルやProgateを利用した。
@@ -442,6 +495,7 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 1. 新規開発メンバーのサポート
 
 #### 習得スキル
+
 - DBに関する知見（テーブル設計、正規化等）
 - Stored Procedureに関する知見
 - Oracle PL/SQLでのプログラミング
