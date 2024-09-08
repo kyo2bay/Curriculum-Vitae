@@ -102,6 +102,69 @@ GitHub Actions / Terraform / Docker / Kubernetes / CircleCI
 
 ## 職務経歴
 
+一定期間以上従事した、もしくは技術的難度の高かったプロジェクトのみ記載しています。
+
+### 製造業向け社内システム刷新(2023/10 ~ 2024/5)
+
+概要: 在庫、生産、受発注、経理などの業務を管理する社内 Web アプリケーションの新規開発
+
+#### 担当業務
+
+1. GKE クラスタ構築
+
+    GKE Autopilot モードクラスタ構築
+
+    - Release Channel などの各項目の設計
+    - Pod, Service 用共有VPCのIPアドレス範囲設計
+
+    【課題】
+    当プロジェクトの他のシステムでは、GKE バージョンアップデートの検証に毎回時間を要していた。
+
+    【解決策】
+    GKE の Release channel を利用し、自動でバージョンアップデートを行うように設定。開発環境は Regular チャンネル、本番環境は Stable チャンネルとすることで、事前に検証したバージョンを適用するスキームとした。
+
+1. Kubernetes 上に Web アプリケーションの基盤開発
+
+    SPA(Vue.js)、REST API(Java)構成のWebアプリケーション k8s 基盤構築
+
+    - Kuberenetes の Deployment, Service, Ingress 等のマニフェスト作成およびデプロイ
+    - Helm によるパッケージ、テンプレート管理
+    - Nginx によるリバースプロキシ、Basic 認証設定
+
+    【課題】
+    当プロジェクトの他のシステムでは、各環境ごとに素の Kubernetesマニフェストファイルを管理していたが、ちょっとしたフィールドの有無など、意図しない環境間差異が発生していた。
+
+    【解決策】
+    環境間で共通の項目をテンプレート化できるツールを採用した。ここでは、Datadog Agent パッケージなどもインストールしやすい Helm を採用した。
+
+1. Datadog を利用した監視設定
+
+    Datadog を利用したGKE, Kubernetesメトリクスの監視設定、ログ収集設定
+
+    - Datadog Agent インストール、GCP Integration 設定
+    - Dataflow, Pub/Sub を利用した k8s アプリログ収集機構構築
+
+1. CI/CDパイプライン構築
+
+    k8s および VM 用 CI/CD パイプライン構築
+
+    - GitHub, GitHub Container Registry, CircleCI を利用した Kubernetes 用 CI/CD パイプラインの構築
+    - cron, systemd, Ansible を利用した VM への CD パイプラインの構築
+
+#### 習得スキル
+
+- GKE, Shared VPC
+- Kuberenetes(Deployment, Service, Ingress, ConfigMap, Secret), Helm
+- Nginx, Ansible
+- Datadog
+
+#### コメント
+
+- 初めての Kubernetes 上での Webアプリケーション構築であったが、公式ドキュメントやLLMを活用して、デファクトスタンダードから逸脱しないアプリケーション基盤を構築できた
+
+<br>
+
+
 ### 専門医による医療健康情報安心化サービス開発(2022/2 ~ 2023/1)
 
 概要: メディアなどのクライアントが執筆した記事を本サービスに登録した医師が妥当性を担保する Webアプリの新規リプレイス開発
