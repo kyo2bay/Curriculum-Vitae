@@ -46,7 +46,7 @@ Gin / Vue(Nuxt) / Django / Ruby on Rails
 
 Lambda / ECS / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
 
-### GCP
+### Google Cloud
 
 #### Compute
 
@@ -73,12 +73,13 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 - AWS Certified Solutions Architect – Associate
 - Google Cloud - Associate Cloud Engineer
 - Google Cloud - Professional Cloud Architect
-- Google Cloud - Professional Cloud Data Engineer
+- Google Cloud - Professional Data Engineer
 - Google Cloud - Professional Cloud Database Engineer
 - Google Cloud - Professional Cloud Developer
 - Google Cloud - Professional Cloud DevOps Engineer
 - Google Cloud - Professional Cloud Network Engineer
 - Google Cloud - Professional Cloud Security Engineer
+- Google Cloud - Professional Machine Learning Engineer
 - Java SE 8 Silver
 - OSS-DB Silver
 - 応用情報技術者
@@ -92,6 +93,53 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 ## 職務経歴
 
 一定期間以上従事した、もしくは技術的難度の高かったプロジェクトのみ記載しています。
+
+## デジタルバンク運用支援(2024/6 ~ 現在)
+
+概要: 口座数100万のデジタルバンクの運用監視、SRE業務支援
+
+#### 担当業務
+
+1. アラート・インシデント対応
+
+    アプリケーションログ、インフラメトリクスなどの起因によるアラート対応・原因調査
+
+    - 高重要度のインシデントへのオンコール対応
+    - 障害根本原因切り分け（クラウドインフラ障害、アプリケーションバグなど）
+    - 各スクラム(マイクロサービス)チームとの連携
+
+    【課題】
+    アプリ保守・運用チームと、このアラート対応チームが分離していたためか、アプリケーション起因の「頻発のアラート」へのバグ修正の優先度はアプリ保守・運用で後回しにされがちであった。
+    【解決策】
+    典型的な DevOps の課題であり、本来はマイクロサービス単位で一気通貫してアプリ保守・運用からアラート対応まで行うべきであったと思うが、個人としてそういった組織体制に変革を与えられる状況ではなかったため、SRE として、「アラートが過剰に発生すると Site Reliability の低下を招く」などを啓発することで、バグ修正などの優先度を高めてもらうようにした。
+
+1. 監視設計・実装・運用
+
+    New Relic を活用したオブザーバビリティの実現
+
+    - アプリケーションの仕様に応じたアラート条件の設計・実装
+    - 実態に即したアラート条件・レベルの見直し・削除
+    - 日々のダッシュボード確認
+
+1. 高セキュリティ要件の VM 設計・構築
+
+   CISポリシーに準拠したアドホックなコマンド実行環境の VM 設計・構築
+
+   - CISポリシーを基本としたプロジェクトセキュリティポリシー設計
+   - OS 設定用 Ansible Playbook 作成
+
+#### 習得スキル
+
+- New Relic, Slack, Jira
+- Kubernetes(Microservices)
+- Ansible
+
+#### コメント
+
+- いわゆる「運用フェーズ」からの初めての参画でプロダクトの仕様把握に時間を要した。 Microservices 環境下のためか、全体を俯瞰して把握できるようなドキュメントもなかったことも一因。こういった事態をどうやったら回避できるか、今後のキャリアでナレッジ・ベストプラクティスを蓄積していきたい。
+- 銀行というセキュリティ要件の高い業界のためか、一般のエンジニアにとって不便・非合理だと感じる制約が多々あった。自分はそのようなものに対してモチベーションを一定保てないことがあるということ、良し悪しではなくそういった業界も存在すると認識できたことはよかった。
+
+<br>
 
 ### 製造業向け社内システム刷新(2023/10 ~ 2024/5)
 
