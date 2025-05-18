@@ -45,7 +45,7 @@ Gin / Vue(Nuxt) / Django / Ruby on Rails
 
 ### AWS
 
-Lambda / ECS / EC2 / Redshift / S3 / SNS / SES / Cloud Watch / Cloud9
+Lambda / ECS / EC2 / Redshift / S3 / SNS / SES / CloudWatch / Cloud9
 
 ### Google Cloud
 
@@ -95,7 +95,7 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
 一定期間以上従事した、もしくは技術的難度の高かったプロジェクトのみ記載しています。
 
-## デジタルバンク運用支援(2024/6 ~ 現在)
+### デジタルバンク運用支援(2024/6 ~ 現在)
 
 概要: 口座数100万のデジタルバンクの運用監視、SRE業務支援
 
@@ -111,6 +111,7 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
     【課題】
     アプリ保守・運用チームと、このアラート対応チームが分離していたためか、アプリケーション起因の「頻発のアラート」へのバグ修正の優先度はアプリ保守・運用で後回しにされがちであった。
+
     【解決策】
     典型的な DevOps の課題であり、本来はマイクロサービス単位で一気通貫してアプリ保守・運用からアラート対応まで行うべきであったと思うが、個人としてそういった組織体制に変革を与えられる状況ではなかったため、SRE として、「アラートが過剰に発生すると Site Reliability の低下を招く」などを啓発することで、バグ修正などの優先度を高めてもらうようにした。
 
@@ -128,17 +129,6 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
    - CISポリシーを基本としたプロジェクトセキュリティポリシー設計
    - OS 設定用 Ansible Playbook 作成
-
-#### 習得スキル
-
-- New Relic, Slack, Jira
-- Kubernetes(Microservices)
-- Ansible
-
-#### コメント
-
-- いわゆる「運用フェーズ」からの初めての参画でプロダクトの仕様把握に時間を要した。 Microservices 環境下のためか、全体を俯瞰して把握できるようなドキュメントもなかったことも一因。こういった事態をどうやったら回避できるか、今後のキャリアでナレッジ・ベストプラクティスを蓄積していきたい。
-- 銀行というセキュリティ要件の高い業界のためか、一般のエンジニアにとって不便・非合理だと感じる制約が多々あった。自分はそのようなものに対してモチベーションを一定保てないことがあるということ、良し悪しではなくそういった業界も存在すると認識できたことはよかった。
 
 <br>
 
@@ -159,18 +149,18 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
     当プロジェクトの他のシステムでは、GKE バージョンアップデートの検証に毎回時間を要していた。
 
     【解決策】
-    GKE の Release channel を利用し、自動でバージョンアップを行う設定を導入。開発環境ではRegularチャンネル、本番環境ではStableチャンネルを採用し、事前に検証済みのバージョンを適用する仕組みを構築した。
+    GKE の Release Channel を利用し、自動でバージョンアップを行う設定を導入。開発環境ではRegularチャンネル、本番環境ではStableチャンネルを採用し、事前に検証済みのバージョンを適用する仕組みを構築した。
 
 1. Kubernetes 上での Web アプリケーションの基盤開発
 
-    SPA(Vue.js)、REST API(Java)構成のWebアプリケーション kubernetes 基盤構築
+    SPA(Vue.js)、REST API(Java)構成のWebアプリケーション Kubernetes 基盤構築
 
-    - Kuberenetes の Deployment, Service, Ingress 等のマニフェスト作成およびデプロイ
+    - Kubernetes の Deployment, Service, Ingress 等のマニフェスト作成およびデプロイ
     - Helm によるパッケージ、テンプレート管理
     - Nginx によるリバースプロキシ、Basic 認証の設定
 
     【課題】
-    当プロジェクトの他のシステムでは、各環境ごとに素の Kubernetesマニフェストファイルを管理していたが、ちょっとしたフィールドの有無など、意図しない環境間差異が発生していた。
+    当プロジェクトの他のシステムでは、各環境ごとに素の Kubernetes マニフェストファイルを管理していたが、ちょっとしたフィールドの有無など、意図しない環境間差異が発生していた。
 
     【解決策】
     環境間で共通の項目をテンプレート化できるツールを採用した。ここでは、Datadog Agent パッケージなどもインストールしやすい Helm を採用した。
@@ -180,25 +170,14 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
     Datadog を利用したGKE, Kubernetesメトリクスの監視設定、ログ収集設定
 
     - Datadog Agent インストール、GCP Integration 設定
-    - Dataflow, Pub/Sub を利用した kubernetes アプリログ収集機構構築
+    - Dataflow, Pub/Sub を利用した Kubernetes アプリログ収集機構構築
 
 1. CI/CDパイプライン構築
 
-    kubernetes および VM 用 CI/CD パイプライン構築
+    Kubernetes および VM 用 CI/CD パイプライン構築
 
     - GitHub, GitHub Container Registry, CircleCI を利用した Kubernetes 用 CI/CD パイプラインの構築
     - cron, systemd, Ansible を利用した VM への CD パイプラインの構築
-
-#### 習得スキル
-
-- GKE, Shared VPC
-- Kuberenetes(Deployment, Service, Ingress, ConfigMap, Secret), Helm
-- Nginx, Ansible
-- Datadog
-
-#### コメント
-
-- 初めての Kubernetes 上での Webアプリケーション構築であったが、公式ドキュメントやLLMを活用して、デファクトスタンダードから逸脱しない（作業を引き継いだが苦労しない）アプリケーション基盤を構築できた
 
 <br>
 
@@ -213,6 +192,7 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
     フロントエンド、バックエンド、データベース等に利用するプロダクト設計
 
     - フロントエンド: Firebase Hosting、バックエンド: Cloud Run、データベース: Firestore
+    - 認証: Firebase Authentication
     - 非同期処理: Cloud Tasks、イベントトリガー: Eventarc
 
     【課題】
@@ -237,8 +217,6 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 1. CI/CD パイプライン構築
 
     Cloud Build を利用した Firebase Hosting、Cloud Run(PR プレビュー含む)、Terraform のパイプライン構築
-
-    - 上記各プロダクトに対して Pull Requset 作成、マージ時に実行される config ファイルの記述
 
     【課題】
     CI/CD にかかる時間は開発効率に直結するので、1分でも速くしたかった。
@@ -265,25 +243,6 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
     - Vue テンプレートの記述
     - Component (Composition API)の実装
-    - 他のメンバーの実装レビュー
-
-    【課題】
-    フロントエンドは全くの未経験領域であった。
-
-    【解決策】
-    基礎をじっくり学習する時間もなかったので、他のフロントエンドエンジニアに相談する、他機能の既存コードをフル活用しながら、応用→基本という流れで知見をつけた。
-
-#### 習得スキル
-
-- Vue, Nuxt, TypeScript
-- Cloud Run、Cloud Build、Eventarc、Cloud Load Balancing、Cloud Armor、Cloud CDN
-- Firebase Authentication、Hosting、Firestore、Remote Config
-
-#### コメント
-
-- 初めての新規Webアプリ開発であったが、技術力の高いメンバーに協力を仰いで、作業を進められた。適切で簡潔な質問で知見のあるメンバーから意見を引き出すというのも大切なスキルだと感じた。
-
-- Terraform が書けるようになったこともあり、プロジェクト中盤以降は インフラ周りを完全に任せてもらえるようになった。そこでこれまで断片的になっていた GCP の知見が実務を通して、体系的に整理されたのは非常によかった。
 
 <br>
 
@@ -325,18 +284,6 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
     【解決策】
     `Dockerfile` を確認したところ、Docker Layer Cache を利用しておらず、毎回のビルドでモジュールのインストールを行っていることが分かった。`package.json`、`go.mod` 等のパッケージファイルを先に `COPY` し、パッケージファイルに変更がない場合は、モジュールのインストールが行われないようにした。
 
-#### 習得スキル
-
-- 基本的なWebアプリ開発フロー
-- GKE、Docker Compose、Circle CI
-- Golang、Gin、Gorm での開発
-
-#### コメント
-
-- 初めての Webアプリ開発であったが、Google Chrome の開発ツールの使い方、クライアントサイドとサーバーサイドの構成、エンドポイントの概念等の理解を、最低限のレベルに早急に引き上げることですぐにバリューを発揮できるようになった。
-
-- 決められたタスクだけでなく、インフラ周りを中心に積極的に自ら課題を見つけ取り組めたことは良かった。意識の問題だけでなく、埋もれている課題を発見するだけの技術力が身についてきたと感じる。
-
 <br>
 
 ### スマホゲームの開発・運営支援業務(2020/11 ~ 2021/03)
@@ -345,63 +292,38 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
 
 #### 担当業務
 
-1. サーバーサイドAPI設計・実装・単体/結合テスト
+1. Golang によるサーバーサイドAPI設計・実装・単体/結合テスト
 
-    - ゲーム新規イベント用のクライアント用API作成
+    - ゲーム新規イベント向けAPI
     - ユーザーデータの Datastore Entity の作成/更新処理
-    - ゲーム内のロジック実装
-    - ゲーム内のガチャ抽選処理
+    - ゲーム内のロジック・ガチャ抽選処理
     - マスタデータの作成
-
-    【課題】
-    諸々のドキュメントが皆無で、ゲームの仕様が理解できていないと実装が進められない部分が多々あった。「ソースコードを読んで理解して」という状態であった。
-
-    【解決策】
-    ゲームを実際にプレーして仕様を把握した。IDEの機能やオリジナルのメモを作成し、ソースコードの全体像理解に努めた。
-
-1. 他メンバーのソースコードレビュー
-
-    - Golang のコードとして問題/改善点はないか
-    - ゲーム仕様を満たすコードが実装できているかどうか
-    - テストコードのテストケースは充分かどうか
-
-#### 習得スキル
-
-- 大規模人数での Git/GitHub 開発フロー
-- GAE、Datastore、Circle CI
-- Golangでのプログラミング、テスト実装
-
-#### コメント
-
-- ビッグタイトルのスマホゲームということもあり、私がいたサーバーサイド担当だけでも10人程、クライアントサイドやテスターも含めると3、40人ほどの大規模案件であった。
-
-- 形態としてはフルリモートのSESであった。参画初期の方は特に良好な人間関係を構築するために積極的にSlackで雑談もするよう心がけた。
-
 <br>
 
 ### 携帯端末データのGCP取込(2020/08 ~ 2020/10)
 
-概要: Cloud Storage にアップロードされた特殊な形式のファイルをCSVに変換し、BigQuery にインポートする機能開発。
+概要: Cloud Storage にアップロードされた独自フォーマットのファイルをCSVに変換し、BigQuery にインポートする機能開発。
 
 #### 担当業務
 
 1. GCPアーキテクチャ設計
 
     【課題】
-    通常ならばワークロードとしては Cloud Functions を選択したいところだが、処理対象のファイルサイズが大きく、最大タイムアウト時間の9分を超える可能性があったため、Cloud Functions は使用できなかった。
+    標準的な設計として、ワークロードは Cloud Functions を選択したいところだったが、処理対象のファイルサイズが大きく、最大タイムアウト時間の9分を超える可能性があったため、Cloud Functions は使用できなかった。
 
     【解決策】
-    このシステムは別の機能ですでに GKE を利用していたため、ワークロードとしては GKE、なおかつリトライ処理を自前でやってくれる Kubernetes Job を利用することにした。
+    このシステムでは別の機能ですでに GKE を利用していたこともあり、ワークロードとしては GKE、なおかつリトライ処理を自前でやってくれる Kubernetes Job を利用することにした。
 
-1. バッチ処理設計・実装・単体/結合テスト
+1. Kubernetes Job バッチ処理設計・実装・単体/結合テスト
 
     - Firestore のエンティティ作成/更新処理
     - CSV 変換処理
     - Cloud Storage Compose 処理
 
-1. ストリーミング処理設計・実装・単体/結合テスト
+1. Golang によるストリーミング処理設計・実装・単体/結合テスト
 
     - PubSubメッセージ受信処理
+    - BigQuery テーブルへのデータ書き込み処理
     - Kubernetes Job 起動処理
     - Kubernetes マニフェストファイル作成
     - Workload Identity の設定
@@ -412,21 +334,11 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
     【解決策】
     Kustomize と Skaffold という技術の組み合わせで yamlファイルを環境に応じて上書きするという方法を用いた。他にも Helm という選択肢はあったが扱いにくいという印象を受けたので採用しなかった。
 
-#### 習得スキル
-
-- GCPの基本的なサービス
-- GKE、Datastore、Big Query、Cloud Functions、Terraform、Cloud Build
-- Golangでのプログラミング、テスト実装
-
-#### コメント
-
-- 初めての Kubernetes (GKE) で最初はどこから理解していったら分からないといった状態であったが、Pod、Node、Deployment、Config などの概念を一つ一つ整理し紐づけることで、「なんとなくはわかる」という状態に素早く持ち込むことに成功し、実装着手まで素早く移行することができた。
-
 <br>
 
 ### スマートフォン中古端末買取システム(2020/04 ~ 2020/07)
 
-概要: Cloud SQL にあるデータを BigQuery に取り込み、 Data Portal で可視化。
+概要: Cloud SQL のデータを BigQuery に取り込み、 Data Portal で可視化。
 
 #### 担当業務
 
@@ -444,107 +356,42 @@ Terraform / Docker / Kubernetes / Nginx / Ansible / Datadog / New Relic
     【解決策】
     Cloud SQLからCloud Storage にデータを CSV 出力、その CSV を BigQuery に取り込むアーキテクチャを採用した。
 
-1. バッチ処理設計・実装・単体/結合テスト
+1. Golang によるバッチ処理設計・実装・単体/結合テスト
 
     - Cloud Storage に 出力された CSV を BigQueryに取込む部分を Cloud Functions (Golang) で実装。
 
     【課題】
-    冪等性の考慮。Cloud Functions は PubSub 通知のメッセージから発火されるが、PubSubは at-least-once配信なので、Cloud Functions が同じCSVファイルに対して複数回起動した場合でも BigQueryには 同じデータが重複しない必要があった。
+    冪等性の考慮。Cloud Functions は PubSub 通知のメッセージから発火されるが、PubSub は at-least-once 配信なので、Cloud Functions が同じCSVファイルに対して複数回起動した場合でも BigQueryには 同じデータが重複しない必要があった。
 
     【解決策】
     日付型の パーティションテーブルを活用して BigQuery への 書き込みモード  `WRITE_TRUNCATE` (毎回データを上書く) 採用した。
 
 1. BIツールを用いたデータの可視化
 
-    - BigQuery を参照し、定義したKPIを表として出力する。
-
-#### 習得スキル
-
-- GCPの基本的なサービス(IAM、VPC等)
-- BigQuery、Cloud Functions、GCS、Cloud SQL
-- Data Portal(Data Studio)
-- Golangでのプログラミング、テスト実装
-
-#### コメント
-
-- 初めてのGCPであったが、直近のプロジェクトで培ったAWSの知識を用いてかなりはやく慣れることができた。アーキテクチャ設計に関してもAWSで得たノウハウを存分にGCPに適用することができた。
-
-- 新型コロナの影響でリモートワークなので、ビデオ会議が増えた。対面でのコミュニケーションに比べるとインプットされる情報(ジェスチャーや、顔の細かい表情)が少ないので、情報伝達の効率は落ちる。対策として、あらかじめ説明のための補足資料を用意してから会議等に臨むようにした。
-結果、いつも30分程度かかっていたMTGが10分程度早く終わるようになった。プロジェクト全体からすると、一人の準備(15分 × 1人)で、全体の(10分 × 4人)の時間を削減できるというのは大きなことだと感じた。習慣として継続したい。
+    - BigQuery をソースとして Data Portal でダッシュボードを作成。
 
 <br>
 
 ### 製薬会社向け既存システム統合(2019/01 ~ 2020/01)
 
-概要: 顧客が利用している様々な外部サービスに蓄積されているデータをAWS上で管理分析するための基盤構築。
+概要: 顧客が利用している様々な外部サービスに蓄積されているデータをAWS上で管理分析するためのDWH基盤構築。
 
 #### 担当業務
 
 1. AWSアーキテクチャ設計構築
 
-    外部サービスから取得したデータを Amazon Redshift にインポートするアーキテクチャの設計および構築。データフローとしては、EC2 → S3 →  CloudWatch → Lambda → Redshift となった。下記を特に担当。
+    - EC2 (データ取得) -> S3 (生データ保存) -> CloudWatch (イベント通知) -> Lambda (生データ加工) -> Amazon Redshift (DWH)
 
-    - EC2、Lambda の AZ 設計
-
-    - CloudWatch Alarm、SNS通知の設定
-
-    - S3のフォルダ (オブジェクトキーのプレフィックス)の設計
-
-    【課題】
-    客先の独自監視システムでバッチ処理のエラー検知を行うことになった。当初は「正規表現を用いた特定の文字列検知」を想定していたが、実装完成後にそのシステムが正規表現は使用できないことが発覚した。
-
-    【解決策】
-    一番修正の手間を短縮できる方法を検討した結果、使用していたログパッケージに対するラッパー関数を用意し、「エラーレベルログの場合は特定の文字列とともにログを出力する」という機能を用意することで解決に至った。
-
-1. システム連携バッチ処理の設計・実装・テスト
-
-    外部サービスに保存されているデータを Web API を叩いて取得し、CSV を作成し、S3へアップロードする機能の設計・実装・テスト (Python)。EC2へのデプロイ。
-
-    【課題】
-    CSV ファイル作成に際し、仕様上「Web API のレスポンスを CSV にそのまま Parse すれば よい」というものでもなかったので、複雑なデータ操作（文字列操作、分割等）を要求された。
-
-    【解決策】
-    スマートな実装方法のようなものはなかったのでトライアンドエラーで複雑なデータ操作を実装した。
-    想定されるテストデータを用意し、正常系・準正常系・異常系のインプットに対して適切なアウトプットができているか確認することで、そのデータ操作の確かさを確認した。
-
-1. メンバー間の作業割り振り
-
-    プロジェクト新規参入メンバーへのタスクの割り振り
-
-1. IAM権限のベンダー間調整
-
-    IAM、S3への読み込み書き込み権限の整理
-
-#### 習得スキル
-
-- AWSの基本的なサービス(IAM、VPC等)
-- Lambda、S3、CloudWatch、Redshift、EC2
-- Pythonでのプログラミング、テスト実装
-- Bash Scriptでのプログラミング
-- REST APIの知見
-
-#### コメント
-
-- 仕様ドキュメントが英語のみのWebAPIを理解する必要があった。これは英語力が高い人にしかできない作業で私に割り当てられることになった。結果一機能の設計/実装/テストを全て個人で行うことができたので自信につながった。
-
-- Pythonでのプログラミングは初めてであったが、文法的には以前学習していたRuby等と似ていることもあってあまり苦労しなかった。学習には公式チュートリアルやProgateを利用した。
-
-- パブリッククラウド(AWS)も初めてで、こちらは全体を把握するのにかなり時間を要した。一つ一つのサービスについてはドキュメントを読めばそのまま理解できるが、それぞれのサービスの結びつきは基本的なVPCやリージョン、IAMの概念を把握していないと理解できないためである。これらを理解することは目先のタスクを消化するのには寄与しないということもあったが、長期的な時間短縮、何より技術への好奇心から遠回りして基本サービスを把握することに努めた。
+1. Python / Bash によるシステム連携バッチ処理の設計・実装・テスト
 
 <br>
 
 ### 携帯キャリア向けデータ移行(2018/09 ~ 2018/12)
 
-概要: SQLServerで稼働している既存のデータベースをOracleに移行。
+概要: SQLServerのデータベースをOracleに移行。
 
 #### 担当業務
 
-1. バッチ処理設計
-1. データ移行マッピングの設計・実装・テスト
+1. Stored Procedure バッチ処理設計
+1. Oracle PL/SQL によるデータ移行マッピングの設計・実装・テスト
 1. 新規開発メンバーのサポート
-
-#### 習得スキル
-
-- DBに関する知見（テーブル設計、正規化等）
-- Stored Procedureに関する知見
-- Oracle PL/SQLでのプログラミング
